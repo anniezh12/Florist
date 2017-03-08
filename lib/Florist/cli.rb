@@ -1,5 +1,3 @@
-#instructor corinna@flatironschool.com
-require 'nokogiri'
 require 'open-uri'
 require 'pry'
 #require_relative 'bday'
@@ -10,15 +8,11 @@ class Florist::CLI
     puts "Hi ,would you Like to see Todays best deals"
     ans = gets.chomp
     if (ans.upcase == "Y" || ans.upcase =="YES")
-      #puts "good"
-    #binding.pry
-    #  weekdeals(BASE_PATH + 'first_page.html')
-    weekdeals
+        weekdeals
     end
 end
 
   def weekdeals
-    #doc = Nokogiri::HTML(open(web_url))
     puts "welcome, which one would you like to see Birthday(b)/Get Well(g)/Anniversary & Love(as)/Sympathy(s)"
     input = gets.chomp
     list_option(input) #will list  four options
@@ -28,27 +22,25 @@ def list_option(input)
 
   case input.upcase
     when "B"
-      #assign the bday page to web_url
-      bday =  Birthday.new
-      #puts bday.all
+      bday =  Birthday.new # creating an object of Birthday class
     when "G"
-      puts "GET wll"
+      puts  "anniversary"
+    # get_well =  Getwell.new # creating an object of Getwell class
     when "A"
       puts  "anniversary"
+      # anniver =  Anniversary.new # creating an object of Anniversary class
     when "S"
       puts "sympathy"
+      # sym =  Sympathy.new # creating an object of Sympathy class
     when "EXIT"
       puts "Thanks for visiting our gem, have a great day"
       exit
     else
-      puts " Please pick one of given option or type exit to exit the application"
+      puts " Please pick one of the given options or type exit to exit the application"
       input = gets.chomp
       list_option(input)
     end
-
   end
 
-  def Today_deals
 
-  end
 end
