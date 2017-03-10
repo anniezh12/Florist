@@ -4,7 +4,6 @@ require 'date'
 
 
 class Birthday
-attr_accessor :flower_name, :url
 
 BASE_PATH = "./fixtures/florist_site/birthday.html"
 def initialize()

@@ -1,6 +1,5 @@
 require 'open-uri'
 require 'pry'
-#require_relative 'bday'
 
 class Florist::CLI
 
@@ -21,17 +20,16 @@ end
 def list_option(input)
 
   case input.upcase
-    when "B"
-      bday =  Birthday.new # creating an object of Birthday class
-    when "G"
-      puts  "anniversary"
-    # get_well =  Getwell.new # creating an object of Getwell class
-    when "A"
-      puts  "anniversary"
-      # anniver =  Anniversary.new # creating an object of Anniversary class
-    when "S"
-      puts "sympathy"
-      # sym =  Sympathy.new # creating an object of Sympathy class
+   when "B"
+     Birthday.new # creating an object of Birthday class
+   when "G"
+     Getwell.new # creating an object of Getwell class
+   when "A"
+     Anniversary.new # creating an object of Anniversary class
+   when "S"
+     Sympathy.new # creating an object of Sympathy class
+     puts"+++++++++++++++++++++"
+     Sympathy.helper
     when "EXIT"
       puts "Thanks for visiting our gem, have a great day"
       exit
