@@ -1,16 +1,16 @@
-require 'open-uri'
 require 'pry'
 
 class Florist::CLI
 
   def call
+
     puts "Hi ,would you Like to see Todays best deals"
     ans = gets.chomp
     if (ans.upcase == "Y" || ans.upcase =="YES")
         weekdeals
     end
-end
 
+end
   def weekdeals
     puts "welcome, which one would you like to see Birthday(b)/Get Well(g)/Anniversary & Love(as)/Sympathy(s)"
     input = gets.chomp
@@ -25,12 +25,10 @@ def list_option(input)
    when "G"
      Getwell.new # creating an object of Getwell class
    when "A"
-     Anniversary.new # creating an object of Anniversary class
+     Anniversary.new# creating an object of Anniversary class
    when "S"
      Sympathy.new # creating an object of Sympathy class
-     puts"+++++++++++++++++++++"
-     Sympathy.helper
-    when "EXIT"
+   when "EXIT"
       puts "Thanks for visiting our gem, have a great day"
       exit
     else
@@ -39,6 +37,5 @@ def list_option(input)
       list_option(input)
     end
   end
-
 
 end

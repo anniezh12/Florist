@@ -27,7 +27,7 @@ end
 def todays_deals
     doc = Nokogiri::HTML(open(BASE_PATH))
     all_deals = []
-    doc.css(".product_row_cont").each{|bouquet|
+    doc.css(".row_product").each{|bouquet|
     deals = {}
     deals[:flower] =  bouquet.css("img").attribute("title").value # scraping bouquet description
     deals[:price] =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
@@ -37,10 +37,12 @@ def todays_deals
 end
 
 def display_deals(deals)
+    count = 0
     deals.each{|deal|
-    puts "Bouquet Description :-" + deal[:flower]
+    puts "#{count} -Bouquet Description :-" + deal[:flower]
     puts "Price :- " + deal[:price]
     puts "-------------------------------------------------------------"
+    count += 1
     }
 end
 
