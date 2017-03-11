@@ -2,10 +2,10 @@
   require 'nokogiri'
   require 'date'
   require 'open-uri'
-  
-  class Anniversary
 
-  #BASE_PATH = "./fixtures/florist_site/anniversary.html" will work for alredy saved files in ./fixtures
+  class Anniversary
+   include Displaybuy
+   #BASE_PATH = "./fixtures/florist_site/anniversary.html" will work for alredy saved files in ./fixtures
   BASE_PATH = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_anniversary&intcid=anniversaryandlove_Flash'
   def initialize
        display_deals(scraping_bouquets_info)
@@ -49,14 +49,5 @@
       all_deals
   end
 
-  def display_deals(deals)
-      count = 0
-      deals.each{|deal|
-      puts "\n#{count} -Bouquet Description :-" + deal[:flower]
-      puts "Price :- " + deal[:price]
-      puts "\n-------------------------------------------------------------------------------------"
-      count += 1
-      }
-  end
 
   end
