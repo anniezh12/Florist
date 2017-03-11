@@ -2,11 +2,12 @@
   require 'pry'
   require 'nokogiri'
   require 'date'
+  require 'open-uri'
 
   class Sympathy
 
-  BASE_PATH = "./fixtures/florist_site/sympathy.html"
-
+  #BASE_PATH = "./fixtures/florist_site/sympathy.html"
+  BASE_PATH = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_sympathy&intcid=sympathy_Flash'
   def initialize()
       display_deals(scraping_bouquets_info)
   end

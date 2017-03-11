@@ -1,9 +1,8 @@
 # Florist
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Florist`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+Welcome to your new gem! In this gem you will be able to see all the current deals provided by Florist shop.
+This gem uses web scraping to collect information and displays it in very user friendly manner .
+Moreover one of a great feature it has is very interactive and prompts users quiet often.
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -22,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This gem will provide today's deals  at Florist.com
 
 ## Development
 
@@ -33,4 +32,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/anniezh12/Florist.
-

@@ -2,10 +2,12 @@
   require 'pry'
   require 'nokogiri'
   require 'date'
+  require 'open-uri'
 
   class Getwell
 
-  BASE_PATH = "./fixtures/florist_site/getwell.html"
+#  BASE_PATH = "./fixtures/florist_site/getwell.html" #will work for alredey saved files in ./fixtures
+   BASE_PATH = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_getwell&intcid=getwell_Flash'
 
   def initialize()
       display_deals(scraping_bouquets_info)

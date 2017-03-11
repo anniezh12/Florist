@@ -1,11 +1,12 @@
 require 'pry'
 require 'nokogiri'
 require 'date'
-
+require 'open-uri'
 
 class Birthday
 
-BASE_PATH = "./fixtures/florist_site/birthday.html"
+#BASE_PATH = "./fixtures/florist_site/birthday.html"  will work for already saved pages
+BASE_PATH = "https://www.florist.com/80527/catalog/category.epl?index_id=occasion_birthday&intcid=Bday_Flash" # direct we address
 def initialize()
     display_deals(scraping_bouquets_info)
 end
