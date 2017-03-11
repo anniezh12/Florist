@@ -1,8 +1,8 @@
 # Florist
 
-Welcome to your new gem! In this gem you will be able to see all the current deals provided by Florist shop.
-This gem uses web scraping to collect information and displays it in very user friendly manner .
-Moreover one of a great feature it has is very interactive and prompts users quiet often.
+Welcome to your new gem! In this gem you will be able to see all the current deals provided by the Florist shop.
+This gem uses web scraping to collect information and displays it in a very user friendly manner .
+Moreover one of a great features is that it is very interactive and prompts users quite often.
 ## Installation
 
 Add this line to your application's Gemfile:
