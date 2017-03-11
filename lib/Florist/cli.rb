@@ -7,11 +7,11 @@ class Florist::CLI
     puts "Hi ,would you Like to see Todays best deals"
     ans = gets.chomp
     if (ans.upcase == "Y" || ans.upcase =="YES")
-        weekdeals
+        todaydeals
     end
 
 end
-  def weekdeals
+  def todaydeals
     puts "welcome, which one would you like to see Birthday(b)/Get Well(g)/Anniversary & Love(as)/Sympathy(s)"
     input = gets.chomp
     list_option(input) #will list  four options
