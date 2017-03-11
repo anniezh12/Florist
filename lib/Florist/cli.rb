@@ -12,7 +12,7 @@ class Florist::CLI
 
 end
   def todaydeals
-    puts "welcome, which one would you like to see Birthday(b)/Get Well(g)/Anniversary & Love(as)/Sympathy(s)"
+    puts "welcome, which one would you like to see Birthday(b)/Get Well(g)/Anniversary & Love(a)/Sympathy(s)"
     input = gets.chomp
     list_option(input) #will list  four options
   end
