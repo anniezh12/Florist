@@ -1,3 +1,3 @@
-#!/usr/bin/env ruby 
-require './lib/florist'
+#!/usr/bin/env ruby
+require_relative '../config/environment'
 Florist::CLI.new.call

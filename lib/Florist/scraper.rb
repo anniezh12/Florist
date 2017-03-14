@@ -14,6 +14,19 @@ module Scraper
         end
   end
 
+  def todays_deals
+      doc = Nokogiri::HTML(open(BASE_PATH))
+      #all_deals = []
+      @all = []
+      doc.css(".row_product").each{|bouquet|
+      deals = {}
+      deals[:flower] =  bouquet.css("img").attribute("title").value # scraping bouquet description
+      deals[:price] =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
+      @all << deals
+    }
+      @all
+  end
+
   def navigation
     puts "How can we help you ? Do you want to go back to the previous menu Y/N ?"
     input = gets.chomp
