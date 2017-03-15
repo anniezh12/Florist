@@ -1,8 +1,3 @@
-require 'pry'
-require 'nokogiri'
-require 'date'
-require 'open-uri'
-
 class Birthday
   attr_accessor  :price, :flower
   include Displaybuy

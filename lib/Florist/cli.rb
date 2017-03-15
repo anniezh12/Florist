@@ -28,14 +28,12 @@ def list_option(input)
      when "G"
      scraping_bouquets_info(Getwell.path,Getwell) # creating an object of Birthday class
      display_deals(Getwell.bouquets)
-   when "A"
-     scraping_bouquets_info(Anniversary.path) # creating an object of Birthday class
-     flowers = Anniversary.flowers
-     display_deals(flowers)
+     when "A"
+     scraping_bouquets_info(Anniversary.path,Anniversary) # creating an object of Birthday class
+     display_deals(Anniversary.bouquets)
    when "S"
-     scraping_bouquets_info(Birthday.path) # creating an object of Birthday class
-     flowers = Birthday.flowers
-     display_flowers(flowers)
+     scraping_bouquets_info(Sympathy.path,Sympathy) # creating an object of Birthday class
+     display_deals(Sympathy.bouquets)
    when "EXIT"
       puts "Thanks for visiting our gem, have a great day"
       exit

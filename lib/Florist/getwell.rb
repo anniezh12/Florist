@@ -1,16 +1,11 @@
-
-  require 'pry'
-  require 'nokogiri'
-  require 'date'
-  require 'open-uri'
-
   class Getwell
-    attr_accessor :flower, :price
+   attr_accessor :flower, :price
    include Displaybuy # has two functions display and buy
    include Scraper  # has two functions scraping_bouquets_info and navigation
 
-@@base_path = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_getwell&intcid=getwell_Flash'
-@@bouquets = []
+  @@base_path = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_getwell&intcid=getwell_Flash'
+  @@bouquets = []
+
   def initialize(price,flower)
       @flower = flower
       @price = price
@@ -21,7 +16,7 @@
     @@base_path
   end
 
-  def self.bouguets
+  def self.bouquets
     @@bouquets
   end
 

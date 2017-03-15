@@ -1,3 +1,7 @@
+  require 'pry'
+  require 'nokogiri'
+  require 'date'
+  require 'open-uri'
 require_relative "../lib/Florist/version"
 require_relative '../lib/Florist/scraper'
 require_relative '../lib/Florist/displaybuy'

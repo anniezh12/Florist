@@ -1,29 +1,28 @@
-  require 'pry'
-  require 'nokogiri'
-  require 'date'
-  require 'open-uri'
-
 class Anniversary
-  attr_accessor :all
+  attr_accessor :flower, :price
   include Displaybuy
   include Scraper
 
-  BASE_PATH = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_anniversary&intcid=anniversaryandlove_Flash'
+  @@base_path = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_anniversary&intcid=anniversaryandlove_Flash'
+  @@bouquets = []
 
-  def initialize
-       display_deals(scraping_bouquets_info(BASE_PATH))
+  def initialize(price,flower)
+    @flower = flower
+    @price = price
+    @@bouquets << self
+
   end
 
-  def todays_deals
-      doc = Nokogiri::HTML(open(BASE_PATH))
-      @all = []
-      doc.css(".row_product").each{|bouquet|
-      deals = {}
-      deals[:flower] =  bouquet.css("img").attribute("title").value # scraping bouquet description
-      deals[:price] =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
-      @all << deals
-    }
-      @all
+  def self.path
+    @@base_path
+  end
+
+  def self.bouquets
+    @@bouquets
+  end
+
+  def self.clear
+    @@bouquets.clear
   end
 
   end
