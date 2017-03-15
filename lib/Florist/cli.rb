@@ -1,9 +1,10 @@
 require 'pry'
 
 class Florist::CLI
+ include Scraper
+ include Displaybuy
 
   def call
-
     puts "Hi ,would you Like to see Todays best deals"
     ans = gets.chomp
     if (ans.upcase == "Y" || ans.upcase =="YES")
@@ -21,13 +22,20 @@ def list_option(input)
 
   case input.upcase
    when "B"
-     Birthday.new # creating an object of Birthday class
-   when "G"
-     Getwell.new # creating an object of Getwell class
+     scraping_bouquets_info(Birthday.path,Birthday) # calling Scraper.scraping_bouquets_info and passing Birthday class
+     display_deals(Birthday.bouquets) #calling Displaybuy.display_deals and passing Birthday.bouquets
+     Birthday.clear # clearing the bouquets array in Birthday empty
+     when "G"
+     scraping_bouquets_info(Getwell.path,Getwell) # creating an object of Birthday class
+     display_deals(Getwell.bouquets)
    when "A"
-     Anniversary.new# creating an object of Anniversary class
+     scraping_bouquets_info(Anniversary.path) # creating an object of Birthday class
+     flowers = Anniversary.flowers
+     display_deals(flowers)
    when "S"
-     Sympathy.new # creating an object of Sympathy class
+     scraping_bouquets_info(Birthday.path) # creating an object of Birthday class
+     flowers = Birthday.flowers
+     display_flowers(flowers)
    when "EXIT"
       puts "Thanks for visiting our gem, have a great day"
       exit

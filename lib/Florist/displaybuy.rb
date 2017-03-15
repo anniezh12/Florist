@@ -1,14 +1,14 @@
 module Displaybuy
 
 def display_deals(deals)
-    count = 1
-    deals.each{|deal|
-    puts "#{count} -Bouquet Description :-" + deal[:flower]
-    puts "Price :- " + deal[:price]
+    #binding.pry
+    deals.each.with_index(1) {|deal,index|
+    puts "#{index} -Bouquet Description :-#{deal.flower}"
+    puts "Price :- #{deal.price}"
     puts "-------------------------------------------------------------"
-    count += 1
+
     }
-    buy
+    #buy
 end
 
 def buy

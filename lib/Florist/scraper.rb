@@ -1,6 +1,6 @@
 module Scraper
 
-  def scraping_bouquets_info(path)
+  def scraping_bouquets_info(path,provided_class)
         doc = Nokogiri::HTML(open(path))
         welcome_text = doc.css('title').text.to_s
         #outofstock = doc.css('#cond_msg').text
@@ -8,23 +8,21 @@ module Scraper
         "
         input = gets.chomp
         if input.upcase == "Y"
-          todays_deals
+          todays_deals(path,provided_class)
         elsif input.upcase == "N"
           navigation
         end
   end
 
-  def todays_deals
-      doc = Nokogiri::HTML(open(BASE_PATH))
-      #all_deals = []
-      @all = []
+  def todays_deals(path,provided_class)
+
+      doc = Nokogiri::HTML(open(path))
       doc.css(".row_product").each{|bouquet|
-      deals = {}
-      deals[:flower] =  bouquet.css("img").attribute("title").value # scraping bouquet description
-      deals[:price] =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
-      @all << deals
+      flower =  bouquet.css("img").attribute("title").value # scraping bouquet description
+      price =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
+      provided_class.new(price,flower) # creatingan object of the provided class
     }
-      @all
+
   end
 
   def navigation

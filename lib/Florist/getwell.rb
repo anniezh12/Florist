@@ -5,26 +5,28 @@
   require 'open-uri'
 
   class Getwell
-    attr_accessor :all
+    attr_accessor :flower, :price
    include Displaybuy # has two functions display and buy
    include Scraper  # has two functions scraping_bouquets_info and navigation
 
-   BASE_PATH = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_getwell&intcid=getwell_Flash'
-
-  def initialize()
-      display_deals(scraping_bouquets_info(BASE_PATH))
+@@base_path = 'https://www.florist.com/80527/catalog/category.epl?index_id=occasion_getwell&intcid=getwell_Flash'
+@@bouquets = []
+  def initialize(price,flower)
+      @flower = flower
+      @price = price
+      @@bouquets << self
   end
 
-  def todays_deals
-      doc = Nokogiri::HTML(open(BASE_PATH))
-      @all = []
-      doc.css(".row_product").each{|bouquet|
-      deals = {}
-      deals[:flower] =  bouquet.css("img").attribute("title").value # scraping bouquet description
-      deals[:price] =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
-      @all << deals
-    }
-      @all
+  def self.path
+    @@base_path
+  end
+
+  def self.bouguets
+    @@bouquets
+  end
+
+  def self.clear
+    @@bouquets.clear
   end
 
   end

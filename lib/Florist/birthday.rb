@@ -4,27 +4,29 @@ require 'date'
 require 'open-uri'
 
 class Birthday
-  attr_accessor :all
+  attr_accessor  :price, :flower
   include Displaybuy
   include Scraper
 
-BASE_PATH = "https://www.florist.com/80527/catalog/category.epl?index_id=occasion_birthday&intcid=Bday_Flash"
+@@base_path = "https://www.florist.com/80527/catalog/category.epl?index_id=occasion_birthday&intcid=Bday_Flash"
+@@bouquets = []
+def initialize(price, flower)
+      @price = price
+      @flower = flower
+      @@bouquets << self
 
-def initialize
-      display_deals(scraping_bouquets_info(BASE_PATH))
 end
 
-def todays_deals
-    doc = Nokogiri::HTML(open(BASE_PATH))
-    #all_deals = []
-    @all = []
-    doc.css(".row_product").each{|bouquet|
-    deals = {}
-    deals[:flower] =  bouquet.css("img").attribute("title").value # scraping bouquet description
-    deals[:price] =  bouquet.css(".price_span").first.text        # scraping price for the bouquet
-    @all << deals
-  }
-    @all
+def self.path
+@@base_path
+end
+
+def self.bouquets
+  @@bouquets
+end
+
+def self.clear
+  @@bouquets.clear
 end
 
 end
