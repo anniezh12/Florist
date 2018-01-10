@@ -1,6 +1,6 @@
 # Florist
 
-Welcome to your new gem! In this gem you will be able to see all the current deals provided by the Florist shop.
+Welcome to Florist! In this gem you will be able to see all the current deals provided by the Florist shop(Flower Deals).
 This gem uses web scraping to collect information and displays it in a very user friendly manner .
 Moreover one of a great features is that it is very interactive and prompts users quite often.
 ## Installation
